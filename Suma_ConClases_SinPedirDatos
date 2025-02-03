@@ -1,0 +1,46 @@
+clases.cpp
+
+#include <iostream>
+#include "Operaciones.h"
+
+using namespace std;
+
+int main()
+{
+	Operaciones operacioncitas; //operaciones espacio y el objeto (operacioncitas)
+	operacioncitas.calcularsuma();
+}
+
+Operaciones.h
+
+#pragma once
+
+using namespace std;
+
+class Operaciones
+{
+private:
+	float a;
+	float b;
+	float suma;
+public:
+	//esto es métodos
+	Operaciones(); 
+	void calcularsuma();
+};
+
+Operaciones.cpp
+
+#include "Operaciones.h"
+#include <iostream>
+
+using namespace std;
+
+Operaciones::Operaciones() {
+	a = 4;
+	b = 5.3;
+}
+void Operaciones::calcularsuma() {
+	suma = a + b;
+	cout << "La suma es: " << suma;
+}
