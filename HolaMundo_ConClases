@@ -1,0 +1,45 @@
+CABECERA (mensaje.cpp)
+
+#pragma once
+#include <string>
+
+using namespace std;
+
+class Mensaje
+{
+private:
+	//datos
+	string mens;
+public:
+	//constructor - metodos
+	Mensaje();
+	void mostrar();
+};
+
+IMPLEMENTACION DE LA CLASE (mensaje.h)
+
+#include "Mensaje.h"
+#include <iostream>
+using namespace std;
+
+//constructor - metodos
+Mensaje::Mensaje() {
+	mens = "Soy Matilde";
+}
+void Mensaje::mostrar() {
+	cout << "El mensaje es: " << mens;
+}
+
+MAIN (ejemploclases.cpp)
+
+#include <iostream>
+#include "Mensaje.h"
+
+using namespace std;
+
+int main()
+{
+	Mensaje mensajito;
+	//cout << "El mensaje es: ";
+	mensajito.mostrar();
+}
