@@ -1,0 +1,67 @@
+EJEMPLO TRIANGULO.CPP
+
+#include <iostream>
+#include "Triangulo.h"
+
+using namespace std;
+
+int main()
+{
+    float base, altura, area;
+
+    do {
+        cout << "ingrese la base: ";
+        cin >> base;
+    } while (base < 1);
+
+    do {
+        cout << "ingrese la altura: ";
+        cin >> altura;
+    } while (altura < 1);
+    Triangulo Triang; //declarar el objeto a utilizar en el programa
+    Triang.set_altura(altura);
+    Triang.set_base(base);
+    cout<<"es area es: "<<Triang.area();
+    cout << "la base es: " << Triang.get_base();
+}
+
+TRIANGULO.H
+
+#pragma once
+
+class Triangulo
+{
+private:
+	float base;
+	float altura;
+public:
+	Triangulo();
+	void set_base(float _base);
+	void set_altura(float _altura);
+	float get_base();
+	float get_altura();
+	float area();
+};
+
+TRIANGULO.CPP
+
+#include "Triangulo.h"
+
+
+Triangulo::Triangulo() {
+}
+void Triangulo::set_base(float _base) {
+	base = _base;
+}
+void Triangulo::set_altura(float _altura) {
+	altura = _altura;
+}
+float Triangulo::get_base() {
+	return base;
+}
+float Triangulo::get_altura() {
+	return altura;
+}
+float Triangulo::area() {
+	return (base * altura) / 2;
+}
