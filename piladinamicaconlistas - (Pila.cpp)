@@ -1,0 +1,85 @@
+#include "Pila.h"
+#include <iostream>
+#include "Nodo.h"
+#include "string"
+
+Pila::Pila() {
+	inicio = NULL;
+}
+
+void Pila::push(Nodo* nuevo) {
+    if (inicio != NULL)
+        nuevo->sig = inicio;
+    inicio = nuevo;
+    cout << "Nuevo auto insertado en la pila!\n";
+    system("pause");
+}
+
+void Pila::pop() {
+    Nodo* temp = new Nodo;
+    if (inicio == NULL) {
+        system("cls");
+        cout << "\nLa pila esta vacia!\n\n";
+        system("pause");
+    }
+    else {
+        temp = inicio;
+        inicio = inicio->sig;
+        system("cls");
+        cout << "\nEl auto eliminado es: " << temp->dato << " - " << temp->nombre << " - " << temp->marca << "\n" << endl;
+        delete temp;
+        system("pause");
+    }
+}
+
+void Pila::show() {
+    Nodo* aux1 = inicio;
+    if (inicio == NULL) {
+        system("cls");
+        cout << "\nLa pila esta vacia!\n\n";
+        system("pause");
+    }
+    else {
+        system("cls");
+        cout << "autos:\n" << endl;
+        while (aux1 != NULL) {
+            cout << aux1->dato << " - " << aux1->nombre << " - " << aux1->marca << "\n" << endl;
+            aux1 = aux1->sig;
+        }
+        system("pause");
+    }
+}
+
+void Pila::top() {
+    Nodo* aux1 = inicio;
+    if (inicio == NULL) {
+        system("cls");
+        cout << "\nLa pila esta vacia!\n\n";
+        system("pause");
+    }
+    else {
+        system("cls");
+        cout << "auto TOP:\n" << endl;
+        cout << aux1->dato << " - " << aux1->nombre << " - " << aux1->marca << "\n" << endl;
+        system("pause");
+    }
+}
+
+void Pila::size() {
+    Nodo* aux1 = inicio;
+    if (inicio == NULL) {
+        system("cls");
+        cout << "\nLa pila esta vacia!\n\n";
+        system("pause");
+    }
+    else {
+        int contador = 0;
+        while (aux1) {
+            contador++;
+            aux1 = aux1->sig;
+        }
+        system("cls");
+        cout << "El tamano de la pila es: '" << contador << "'\n" << endl;
+        system("pause");
+    }
+}
