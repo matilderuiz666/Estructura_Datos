@@ -1,0 +1,15 @@
+#pragma once
+#include "Nodo.h"
+
+class Pila
+{
+private:
+	Nodo* inicio;
+public:
+	Pila();
+	void push( Nodo* nuevo); // apilar
+	void pop(); // desapilar
+	void show(); // Ver
+	void top(); //cima
+	void size(); //tamaño
+};
