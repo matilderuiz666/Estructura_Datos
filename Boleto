@@ -1,0 +1,91 @@
+MAIN
+#include <iostream>
+#include "Boleto.h"
+using namespace std;
+
+int main()
+{
+    Boleto boletito;
+    int opc;
+    boletito.insertardatos();
+    do {
+        cout << "Ingrese 1 si desea validar su boleto y 0 si desea continuar: ";
+        cin >> opc;
+        //cin.ignore();
+        if(opc==1)
+            boletito.validar();
+    } while (opc != 0);
+    system("pause");
+    boletito.mostrarinfo();
+    return 0;
+}
+
+BOLETO.H
+
+#pragma once
+#include <iostream>
+#include "string"
+using namespace std;
+
+class Boleto
+{
+private:
+	string nombreevento;
+	string codigo; //primary key
+	string nombreusuario; //colocar el codigo de usuario
+	string fecha;
+	float precio; //precio al cliente, costo al interno
+	bool usado;
+public:
+	Boleto();
+	void insertardatos();
+	void validar();
+	void mostrarinfo();
+};
+
+BOLETO.CPP
+#include <iostream>
+#include "string"
+#include "Boleto.h"
+using namespace std;
+
+Boleto::Boleto() {
+	usado = false;
+}
+
+void Boleto::insertardatos() {
+	cin.ignore();
+	cout << "ingrese el nombre del evento: ";
+	getline(cin, nombreevento);
+	cout << "ingrese el nombre del usuario: ";
+	getline(cin, nombreusuario);
+	cout << "Ingrese la fecha del evento: ";
+	getline(cin, fecha);
+	cout << "ingrese el costo del boleto: ";
+	cin >> precio;
+	cin.ignore();
+}
+
+void Boleto::validar() {
+	if (usado == false) {
+		cout << "\nEl boleto esta listo para usarse" << endl;
+		usado = true;
+	}
+	else
+		cout << "\nel boleto ya esta vencido" << endl;
+}
+
+void Boleto::mostrarinfo() {
+	cout << "\n-------------------------------------";
+	cout << "\n\tDATOS DE BOLETO";
+	cout << "\n\n\tNombre del evento: " << nombreevento;
+	cout << "\n\tNombre del usuario: " << nombreusuario;
+	cout << "\n\tFecha del evento: " << fecha;
+	cout << "\n\tCosto: $" << precio;
+	cout << "\n\n\tEstado: ";
+	if (!usado)
+		cout << "Activo";
+	else
+		cout << "Vencido";
+	cout << "\n-------------------------------------";
+}
